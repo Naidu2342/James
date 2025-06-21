@@ -107,7 +107,8 @@ This project is configured for free hosting on [Render](https://render.com).
 
 ## 📸 Screenshots
 
-*Add screenshots or demo GIFs here if available.*
+### 🏠 Homepage
+![Homepage](screenshots/interface.png)
 
 ---
 
