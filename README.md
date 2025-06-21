@@ -1,4 +1,10 @@
 # 🤖 AI Roadmap Chatbot
+![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)
+![Built with Flask](https://img.shields.io/badge/Built%20with-Flask-blue)
+![Powered by Groq API](https://img.shields.io/badge/Powered%20by-Groq%20API-purple)
+![Responsive](https://img.shields.io/badge/Responsive-Design-green)
+![Dark/Light Mode](https://img.shields.io/badge/Theme-Dark%20%26%20Light-ff69b4)
+
 
 An AI-powered chatbot web application that helps users explore personalized learning paths in Artificial Intelligence. Built with Python (Flask) and integrated with the Groq API, it features a dynamic, animated UI with dark/light mode and the ability to download chats as PDFs.
 
