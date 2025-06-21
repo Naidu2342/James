@@ -1,8 +1,3 @@
-Perfect! Here's your **complete `README.md` file** — properly formatted and ready to copy-paste into your project on GitHub:
-
----
-
-```markdown
 # 🤖 AI Roadmap Chatbot
 
 An AI-powered chatbot web application that helps users explore personalized learning paths in Artificial Intelligence. Built with Python (Flask) and integrated with the Groq API, it features a dynamic, animated UI with dark/light mode and the ability to download chats as PDFs.
