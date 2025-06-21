@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="James is your AI Tutor. Get personalized AI roadmap for your domain.">
+  <meta charset="UTF-8">
+  <title>James 🤖</title>
+  <link rel="stylesheet" href="/static/style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+<body>
+  <div class="chat-container">
+    <header>
+      <h1>🤖 James</h1>
+      <select id="themeSelect">
+        <option value="dark">🌙 Dark</option>
+        <option value="light">☀️ Light</option>
+        <option value="purple">🟣 Purple</option>
+        <option value="blue">🔵 Blue</option>
+        <option value="green">🟩 Green</option>
+      </select>
+    </header>
+
+    <main id="chat-box"></main>
+
+    <footer class="input-area">
+      <input type="text" id="message" placeholder="Ask me about AI..." />
+      <button onclick="send()">Send</button>
+      <button id="downloadBtn">Download Chat PDF</button>
+    </footer>
+
+  </div>
+
+  
+
+  <script>
+    const chatBox = document.getElementById("chat-box");
+
+    async function send() {
+      const input = document.getElementById("message");
+      const text = input.value.trim();
+      if (!text) return;
+
+      addMessage("user", text);
+      input.value = "";
+
+      addMessage("bot", "<span class='typing-dots'><span>.</span><span>.</span><span>.</span></span>", true);
+
+
+      const res = await fetch("/api/chat", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ message: text })
+      });
+
+      const data = await res.json();
+      updateLastBotMessage(data.reply);
+    }
+
+    function addMessage(type, text, isTemp = false) {
+      const msg = document.createElement("div");
+      msg.className = `message ${type}` + (isTemp ? " temp" : "");
+      msg.innerHTML = `<div class="bubble">${text}</div>`;
+      chatBox.appendChild(msg);
+      chatBox.scrollTop = chatBox.scrollHeight;
+    }
+
+    function updateLastBotMessage(text) {
+      const last = document.querySelector(".message.bot.temp .bubble");
+      if (last) last.textContent = text;
+      document.querySelector(".message.bot.temp").classList.remove("temp");
+      chatBox.scrollTop = chatBox.scrollHeight;
+    }
+
+    document.getElementById("message").addEventListener("keypress", e => {
+      if (e.key === "Enter") send();
+    });
+
+    // Theme switcher
+    const themeSelect = document.getElementById("themeSelect");
+
+    themeSelect.addEventListener("change", () => {
+      const selected = themeSelect.value;
+      document.body.className = selected + "-mode"; // e.g., dark-mode
+      localStorage.setItem("theme", selected);
+    });
+
+    // Load saved theme
+    window.addEventListener("DOMContentLoaded", () => {
+      const saved = localStorage.getItem("theme") || "dark";
+      document.body.className = saved + "-mode";
+      themeSelect.value = saved;
+    });
+    window.addEventListener("DOMContentLoaded", () => {
+      // Load saved theme
+      const saved = localStorage.getItem("theme") || "dark";
+      document.body.className = saved + "-mode";
+      themeSelect.value = saved;
+
+      // Show welcome message
+      addMessage("bot", "👋 Hello! I'm James, Your AI Tutor. Please enter domain you are intrested to learn(e.g., Data Science, Cybersecurity, Web Development) get your personalized AI roadmap. I will try my best to help you! 😀. Confused? Just type 'Hii' and get sample roadmap for Artificial Intelligence Domain. ");
+    });
+    document.getElementById('downloadBtn').addEventListener('click', () => {
+      const { jsPDF } = window.jspdf;
+      const doc = new jsPDF();
+
+      let y = 10;
+      const lineHeight = 10;
+      const maxWidth = 180;
+      const chatMessages = document.querySelectorAll('#chat-box .message');
+
+      doc.setFontSize(12);
+      doc.text("🧾 AI Chatbot Conversation\n\n", 10, y);
+      y += lineHeight * 2;
+
+      chatMessages.forEach(msg => {
+        let sender = msg.classList.contains('user') ? "You: " : "Bot: ";
+        let text = msg.innerText.replace(/^You: |^Bot: /, "");
+
+        const lines = doc.splitTextToSize(text, maxWidth);
+
+        lines.forEach((line, i) => {
+          if (y > 280) {
+            doc.addPage();
+            y = 10;
+          }
+          if (i === 0) {
+            doc.text(sender + line, 10, y);
+          } else {
+            doc.text(line, 20, y);
+          }
+          y += lineHeight;
+        });
+        y += 5;
+      });
+
+      doc.save("AI_Chatbot_Conversation.pdf");
+    });
+
+
+  </script>
+</body>
+</html>
