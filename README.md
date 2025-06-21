@@ -139,3 +139,12 @@ This project is licensed under the [MIT License](LICENSE).
 Founder of [Hack Culprit](https://hackculprit.live)
 📧 Email: [rapetanaidu478@gmail.com](mailto:rapetanaidu478@gmail.com)
 🌐 Live Project: [https://your-chatbot.onrender.com](https://james-epns.onrender.com)
+
+---
+
+## ☕ Support
+
+If you like this project, consider supporting me:
+
+[![Buy Me A Coffee](https://img.shields.io/badge/-Buy%20me%20a%20coffee-ffdd00?style=flat&logo=buy-me-a-coffee&logoColor=black)](https://www.buymeacoffee.com/naidu2342)
+
