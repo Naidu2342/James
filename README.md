@@ -128,7 +128,5 @@ This project is licensed under the [MIT License](LICENSE).
 
 **Naidu Rapeta**
 Founder of [Hack Culprit](https://hackculprit.live)
-📧 Email: [your.email@example.com](mailto:your.email@example.com)
-🌐 Live Project: [https://your-chatbot.onrender.com](https://your-chatbot.onrender.com)
-
-```
+📧 Email: [rapetanaidu478@gmail.com](mailto:rapetanaidu478@gmail.com)
+🌐 Live Project: [https://your-chatbot.onrender.com](https://james-epns.onrender.com)
