@@ -289,3 +289,60 @@ footer.input-area {
 .buy-coffee:hover {
   transform: scale(1.05);
 }
+.input-area.site-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 15px 10px;
+  border-top: 1px solid #444;
+  background: transparent;
+  color: inherit;
+  text-align: center;
+}
+
+.footer-top {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  width: 100%;
+}
+
+.footer-top input {
+  flex: 1 1 200px;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  min-width: 150px;
+}
+
+.footer-top button,
+.footer-top .buy-button {
+  font-family: 'Cookie', cursive; /* 👈 change font here */
+  font-weight: 600;                  /* Boldness */
+  font-size: 14px;                   /* Font size */
+  letter-spacing: 0.5px;             /* Optional: more space between letters */
+  text-transform: uppercase; 
+  padding: 10px 14px;
+  font-size: 14px;
+  border-radius: 8px;
+  border: none;
+  background-color: #FFDD00;
+  color: black;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.footer-top button:hover,
+.footer-top .buy-button:hover {
+  background-color: #009edc;
+}
+
+.footer-bottom p {
+  margin: 5px 0 0;
+  font-size: 13px;
+  color: #aaa;
+}
