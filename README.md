@@ -107,8 +107,8 @@ This project is licensed under the MIT License.
 
 ## Contact
 
-Your Name - [your.email@example.com](mailto:your.email@example.com)
-Project Link: [https://github.com/yourusername/ai-roadmap-chatbot](https://github.com/yourusername/ai-roadmap-chatbot)
+Naidu Rapeta - [Mail](mailto:rapetanaidu478@gmail.com)
+Project Link: [https://github.com/yourusername/ai-roadmap-chatbot](https://github.com/naidu2342/ai-roadmap-chatbot)
 
 ```
 ```
