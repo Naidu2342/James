@@ -195,3 +195,39 @@ body.green-mode .message.bot .bubble { background: #27ae60; }
 * {
   transition: background 0.3s ease, color 0.3s ease;
 }
+@media (max-width: 600px) {
+  .chat-container {
+    width: 100%;
+    height: 100vh;
+    border: none;
+  }
+
+  header h1 {
+    font-size: 20px;
+  }
+
+  .input-area {
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+  }
+
+  input {
+    width: 100%;
+    margin: 0;
+  }
+
+  button {
+    width: 100%;
+    margin: 0;
+  }
+
+  #downloadBtn {
+    margin-top: 5px;
+  }
+
+  .bubble {
+    max-width: 100%;
+    word-wrap: break-word;
+  }
+}
