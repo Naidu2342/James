@@ -52,7 +52,7 @@ A simple AI chatbot web application built with Flask that provides AI learning r
    ```bash
    pip install -r requirements.txt
    ```
-
+````
 3. Set environment variable for API key (Linux/macOS):
 
    ```bash
