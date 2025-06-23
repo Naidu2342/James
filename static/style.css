@@ -72,12 +72,17 @@ button {
 }
 
 .bubble {
-  max-width: 75%;
+  max-width: 100%;
   padding: 10px 15px;
   border-radius: 18px;
   line-height: 1.4;
   box-shadow: 0 1px 5px rgba(0,0,0,0.2);
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  white-space: pre-wrap;
+  box-sizing: border-box;
 }
+
 
 .message.user .bubble {
   background: #007acc;
@@ -357,6 +362,8 @@ footer.input-area {
   padding: 10px;
   border-radius: 5px;
   overflow-x: auto;
+  word-wrap: break-word;     /* 💡 wrap long lines */
+  white-space: pre-wrap;
   font-family: monospace;
   font-size: 14px;
   color: #f0f0f0;
@@ -366,4 +373,5 @@ footer.input-area {
 .message code {
   color: #00ff9f;
   white-space: pre-wrap;
+  font-family: monospace;
 }
