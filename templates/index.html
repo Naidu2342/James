@@ -74,12 +74,25 @@
       chatBox.scrollTop = chatBox.scrollHeight;
     }
 
+   function formatMarkdown(text) {
+      return text
+        .replace(/^### (.*$)/gim, '<h3>$1</h3>')
+        .replace(/^## (.*$)/gim, '<h2>$1</h2>')
+        .replace(/^# (.*$)/gim, '<h1>$1</h1>')
+        .replace(/\*\*(.*?)\*\*/gim, '<strong>$1</strong>')
+        .replace(/\*(.*?)\*/gim, '<em>$1</em>')
+        .replace(/```c([\s\S]*?)```/gim, '<pre><code class="c">$1</code></pre>')
+        .replace(/```([\s\S]*?)```/gim, '<pre><code>$1</code></pre>')
+        .replace(/\n/g, "<br>");
+    }
+
     function updateLastBotMessage(text) {
       const last = document.querySelector(".message.bot.temp .bubble");
-      if (last) last.textContent = text;
+      if (last) last.innerHTML = formatMarkdown(text);
       document.querySelector(".message.bot.temp").classList.remove("temp");
       chatBox.scrollTop = chatBox.scrollHeight;
     }
+    
 
     document.getElementById("message").addEventListener("keypress", e => {
       if (e.key === "Enter") send();
